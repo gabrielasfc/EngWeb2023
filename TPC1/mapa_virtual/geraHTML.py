@@ -13,21 +13,19 @@ ligacoes = mapa["ligações"]
 
 nomes_cidades = dict()
 for c in cidades:
-    if c["id"] not in nomes_cidades:
-        nomes_cidades[c["id"]] = c["nome"]
+    nomes_cidades[c["id"]] = c["nome"]
 
 origens = dict()
 destinos = dict()
 
 for l in ligacoes:
-    if l['destino'] not in origens:
-        origens[l['destino']] = list() 
-    origens[l['destino']].append((l['origem'], l['distância']))
+    if l["destino"] not in origens:
+        origens[l["destino"]] = list() 
+    origens[l["destino"]].append((l["origem"], l["distância"]))
 
-    if l['origem'] not in destinos:
+    if l["origem"] not in destinos:
         destinos[l['origem']] = list()
-
-    destinos[l['origem']].append((l['destino'], l['distância']))
+    destinos[l["origem"]].append((l["destino"], l["distância"]))
 
 
 pagHTML = """
@@ -58,7 +56,7 @@ pagHTML = """
 
 for c in cidades:
     pagHTML += f"""
-                    <li><a href="#{c['id']}">{c["nome"]}</a></li>
+                    <li><a href="#{c["id"]}">{c["nome"]}</a></li>
     """
 
 pagHTML += """
@@ -72,14 +70,13 @@ for c in cidades:
     pagHTML += f"""
                     <a name="{c['id']}"/>
                     <h3>{c['nome']}</h3>
-                    <p><b>População: </b>{c['população']}</p>
-                    <p><b>Descrição: </b>{c['descrição']}</p>
-                    <p><b>Distrito: </b>{c['distrito']}</p>
-                    <p><b>Ligações: </b></br>
-                        <table>
-                            <td>
-                                <p><b>Origens:</b></p>
-                                <ul>
+                    <p><b>População: </b>{c["população"]}</p>
+                    <p><b>Descrição: </b>{c["descrição"]}</p>
+                    <p><b>Distrito: </b>{c["distrito"]}</p>
+                    <table>
+                        <td>
+                            <p><b>Origens:</b></p>
+                            <ul>
     """
 
     if c["id"] in origens:
@@ -89,22 +86,22 @@ for c in cidades:
             """
 
     pagHTML += f"""
-                                </ul>
-                            </td>
-                            <td>
-                                <p><b>Destinos:</b></p>
-                                <ul>
+                            </ul>
+                        </td>
+                        <td>
+                            <p><b>Destinos:</b></p>
+                            <ul>
     """
 
     if c["id"] in destinos:
         for dest in destinos[c["id"]]:
             pagHTML += f"""
-                                    <li><a href="#{dest[0]}">{nomes_cidades[dest[0]]}</a> - {dest[1]} km</li>
+                                <li><a href="#{dest[0]}">{nomes_cidades[dest[0]]}</a> - {dest[1]} km</li>
             """
 
     pagHTML += f"""
-                                </ul>    
-                            </td>
+                            </ul>    
+                        </td>
                     </table>
                     <address>[<a href="#indice">Voltar ao Índice]</adress>
                     <center>
