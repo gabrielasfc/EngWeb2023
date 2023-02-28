@@ -172,5 +172,6 @@ def main():
     for c in cidades:
         gera_pag_cidade(c, origens, destinos, nomes_cidades)
 
+
 if __name__ == '__main__':
     main()
