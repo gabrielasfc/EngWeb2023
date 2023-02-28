@@ -28,7 +28,7 @@ http.createServer(function(req, res) {
             res.writeHead(200, {'Content-Type' : 'text/html; charset=utf-8'})
     
             if (err) {
-                res.write("ERROR : Reading file " + err)
+                res.write("ERRO : Na leitura do ficheiro :: " + err)
             }
             else {
                 res.write(data)
@@ -39,6 +39,7 @@ http.createServer(function(req, res) {
     }
 
     else {
+        res.writeHead(200, {'Content-Type' : 'text/html; charset=utf-8'})
         res.write("<pre>ERRO: Path inválido</pre>")
         res.end()
     }
