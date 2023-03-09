@@ -21,7 +21,7 @@ http.createServer(function(req, res){
     }
     else if (req.url == "/"){
         res.writeHead(200, {"Content-Type": "text/html; charset=utf-8"})
-        res.write(genpages.genMenuPage(d))
+        res.write(genpages.genInitialPage(d))
         res.end()
     }
     else if (req.url == "/pessoas"){
@@ -119,7 +119,7 @@ http.createServer(function(req, res){
         axios.get("http://localhost:3000/pessoas")
             .then(function(resp){
                 res.writeHead(200, {"Content-Type": "text/html; charset=utf-8"})
-                res.write(genpages.genProfissaoDistrPage(genpages.jobDistr(resp.data), d))
+                res.write(genpages.genJobDistrPage(genpages.jobDistr(resp.data), d))
                 res.end()
              })
             .catch(err => { 
