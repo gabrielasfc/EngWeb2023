@@ -19,6 +19,11 @@ http.createServer(function(req, res){
             }
         })
     }
+    else if (req.url == "/"){
+        res.writeHead(200, {"Content-Type": "text/html; charset=utf-8"})
+        res.write(genpages.genMenuPage(d))
+        res.end()
+    }
     else if (req.url == "/pessoas"){
         axios.get("http://localhost:3000/pessoas")
             .then(function(resp){

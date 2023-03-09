@@ -1,3 +1,35 @@
+exports.genMenuPage = function(d){
+    var pagHTML = `
+    <!DOCTYPE html>
+    <html>
+        <head>
+            <meta charset="UTF-8"/>
+            <title>Lista de Opções</title>
+            <link rel="stylesheet" type="text/css" href="w3.css"/>
+        </head>
+        <body>
+            <div class="w3-card-4">
+                <header class="w3-container w3-indigo">
+                    <h1>Lista de Opções</h1> 
+                </header>
+                <div class="w3-bar w3-card-4">
+                    <a href="/pessoas" class="w3-bar-item w3-button w3-hover-pale-blue">Lista de Pessoas</a>
+                    <a href="/pessoasOrdenadas" class="w3-bar-item w3-button w3-hover-pale-blue">Lista Ordenada de Pessoas</a>
+                    <a href="/sexo" class="w3-bar-item w3-button w3-hover-pale-blue">Distribuição por Sexo</a>
+                    <a href="/desporto" class="w3-bar-item w3-button w3-hover-pale-blue">Distribuição por Desporto</a>
+                    <a href="/profissao" class="w3-bar-item w3-button w3-hover-pale-blue">Top 10 de Profissões</a>
+                </div>
+                <footer class="w3-container w3-indigo">
+                    <h5>Gerado em EngWeb2023 ${d}</h5>
+                </footer>
+            </div>
+        </body>
+    </html>        
+    `
+
+    return pagHTML
+}
+
 exports.genMainPage = function(people, d) {
     var pagHTML = `
         <!DOCTYPE html>
@@ -9,10 +41,16 @@ exports.genMainPage = function(people, d) {
             </head>
             <body>
                 <div class="w3-card-4">
-                    <header class="w3-container w3-purple">
+                    <header class="w3-container w3-indigo">
                         <h1>Lista de Pessoas</h1>
                     </header>
-                
+                    <div class="w3-bar w3-card-4">
+                        <a href="/pessoas" class="w3-bar-item w3-button w3-hover-pale-blue">Lista de Pessoas</a>
+                        <a href="/pessoasOrdenadas" class="w3-bar-item w3-button w3-hover-pale-blue">Lista Ordenada de Pessoas</a>
+                        <a href="/sexo" class="w3-bar-item w3-button w3-hover-pale-blue">Distribuição por Sexo</a>
+                        <a href="/desporto" class="w3-bar-item w3-button w3-hover-pale-blue">Distribuição por Desporto</a>
+                        <a href="/profissao" class="w3-bar-item w3-button w3-hover-pale-blue">Top 10 de Profissões</a>
+                    </div>
                     <div class="w3-container">
                         <table class="w3-table-all">
                             <tr>
@@ -39,8 +77,7 @@ exports.genMainPage = function(people, d) {
     pagHTML += `
                         </table>
                     </div>
-
-                    <footer class="w3-container w3-purple">
+                    <footer class="w3-container w3-indigo">
                         <h5>Gerado em EngWeb2023 ${d}</h5>
                     </footer>
                 
@@ -63,19 +100,24 @@ exports.genPersonPage = function(person, d){
             </head>
             <body>
                 <div class="w3-card-4">
-                    <header class="w3-container w3-purple">
+                    <header class="w3-container w3-indigo">
                         <h1>${person.nome}</h1>
                     </header>
-                
-                    <div class="w3-container">
-                    <p><b>ID:</b> ${person.id}</p>
-                    <p><b>Nome:</b> ${person.nome}</p>
-                    <p><b>Idade:</b> ${person.idade}</p>
-                    <p><b>Sexo:</b> ${person.sexo}</p>
-                    <p><b>Cidade:</b> ${person.morada.cidade}</p>
+                    <div class="w3-bar w3-card-4">
+                        <a href="/pessoas" class="w3-bar-item w3-button w3-hover-pale-blue">Lista de Pessoas</a>
+                        <a href="/pessoasOrdenadas" class="w3-bar-item w3-button w3-hover-pale-blue">Lista Ordenada de Pessoas</a>
+                        <a href="/sexo" class="w3-bar-item w3-button w3-hover-pale-blue">Distribuição por Sexo</a>
+                        <a href="/desporto" class="w3-bar-item w3-button w3-hover-pale-blue">Distribuição por Desporto</a>
+                        <a href="/profissao" class="w3-bar-item w3-button w3-hover-pale-blue">Top 10 de Profissões</a>
                     </div>
-
-                    <footer class="w3-container w3-purple">
+                    <div class="w3-container">
+                        <p><b>ID:</b> ${person.id}</p>
+                        <p><b>Nome:</b> ${person.nome}</p>
+                        <p><b>Idade:</b> ${person.idade}</p>
+                        <p><b>Sexo:</b> ${person.sexo}</p>
+                        <p><b>Cidade:</b> ${person.morada.cidade}</p>
+                    </div>
+                    <footer class="w3-container w3-indigo">
                         <h5>Gerado em EngWeb2023 ${d}</h5>
                     </footer>
                  </div>
@@ -102,21 +144,24 @@ exports.sexDistr = function(people){
 exports.genSexDistrPage = function(distr, d){
     pagHTML =`
     <!DOCTYPE html>
-
     <html>
         <head>
             <meta charset="UTF-8"/>
             <title>Distribuição por Sexo</title>
             <link rel="stylesheet" type="text/css" href="w3.css"/>
         </head>
-
         <body>
             <div class="w3-card-4">
-
-                <header class="w3-container w3-purple">
+                <header class="w3-container w3-indigo">
                     <h1>Distribuição por Sexo</h1>
                 </header>
-                
+                <div class="w3-bar w3-card-4">
+                    <a href="/pessoas" class="w3-bar-item w3-button w3-hover-pale-blue">Lista de Pessoas</a>
+                    <a href="/pessoasOrdenadas" class="w3-bar-item w3-button w3-hover-pale-blue">Lista Ordenada de Pessoas</a>
+                    <a href="/sexo" class="w3-bar-item w3-button w3-hover-pale-blue">Distribuição por Sexo</a>
+                    <a href="/desporto" class="w3-bar-item w3-button w3-hover-pale-blue">Distribuição por Desporto</a>
+                    <a href="/profissao" class="w3-bar-item w3-button w3-hover-pale-blue">Top 10 de Profissões</a>
+                </div>
                 <div class="w3-container">
                     <table class="w3-table-all">
                         <tr>
@@ -137,8 +182,7 @@ exports.genSexDistrPage = function(distr, d){
     pagHTML += `
                     </table>
                 </div>
-
-                <footer class="w3-container w3-purple">
+                <footer class="w3-container w3-indigo">
                     <h5>Gerado em EngWeb2023 ${d}</h5>
                 </footer>
             </div>
@@ -167,21 +211,24 @@ exports.sportDistr = function(people){
 exports.genSportDistrPage = function(distr, d){
     pagHTML =`
     <!DOCTYPE html>
-
     <html>
         <head>
             <meta charset="UTF-8"/>
             <title>Distribuição por Desporto</title>
             <link rel="stylesheet" type="text/css" href="w3.css"/>
         </head>
-
         <body>
             <div class="w3-card-4">
-
-                <header class="w3-container w3-purple">
+                <header class="w3-container w3-indigo">
                     <h1>Distribuição por Desporto</h1>
                 </header>
-                
+                <div class="w3-bar w3-card-4">
+                    <a href="/pessoas" class="w3-bar-item w3-button w3-hover-pale-blue">Lista de Pessoas</a>
+                    <a href="/pessoasOrdenadas" class="w3-bar-item w3-button w3-hover-pale-blue">Lista Ordenada de Pessoas</a>
+                    <a href="/sexo" class="w3-bar-item w3-button w3-hover-pale-blue">Distribuição por Sexo</a>
+                    <a href="/desporto" class="w3-bar-item w3-button w3-hover-pale-blue">Distribuição por Desporto</a>
+                    <a href="/profissao" class="w3-bar-item w3-button w3-hover-pale-blue">Top 10 de Profissões</a>
+                </div>
                 <div class="w3-container">
                     <table class="w3-table-all">
                         <tr>
@@ -202,8 +249,7 @@ exports.genSportDistrPage = function(distr, d){
     pagHTML += `
                     </table>
                 </div>
-
-                <footer class="w3-container w3-purple">
+                <footer class="w3-container w3-indigo">
                     <h5>Gerado em EngWeb2023 ${d}</h5>
                 </footer>
             </div>
@@ -250,11 +296,16 @@ exports.genProfissaoDistrPage = function(distr, d){
 
         <body>
             <div class="w3-card-4">
-
-                <header class="w3-container w3-purple">
+                <header class="w3-container w3-indigo">
                     <h1>Top 10 de Profissões</h1>
                 </header>
-                
+                <div class="w3-bar w3-card-4">
+                    <a href="/pessoas" class="w3-bar-item w3-button w3-hover-pale-blue">Lista de Pessoas</a>
+                    <a href="/pessoasOrdenadas" class="w3-bar-item w3-button w3-hover-pale-blue">Lista Ordenada de Pessoas</a>
+                    <a href="/sexo" class="w3-bar-item w3-button w3-hover-pale-blue">Distribuição por Sexo</a>
+                    <a href="/desporto" class="w3-bar-item w3-button w3-hover-pale-blue">Distribuição por Desporto</a>
+                    <a href="/profissao" class="w3-bar-item w3-button w3-hover-pale-blue">Top 10 de Profissões</a>
+                </div>
                 <div class="w3-container">
                     <table class="w3-table-all">
                         <tr>
@@ -275,8 +326,7 @@ exports.genProfissaoDistrPage = function(distr, d){
     pagHTML += `
                     </table>
                 </div>
-
-                <footer class="w3-container w3-purple">
+                <footer class="w3-container w3-indigo">
                     <h5>Gerado em EngWeb2023 ${d}</h5>
                 </footer>
             </div>
