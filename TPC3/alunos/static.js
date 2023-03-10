@@ -8,7 +8,7 @@
 var fs = require('fs')
 
 function staticResource(request){
-    files = fs.readdirSync(folder);
+    files = fs.readdirSync("./public");
 
     for (let i = 0; i < files.length; i++){
         regexp = files[i]+"$"
