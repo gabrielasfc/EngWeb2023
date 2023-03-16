@@ -1,0 +1,47 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Gabriela Cunha"
+    },
+    {
+      "id": 2,
+      "name": "Guilherme Varela"
+    },
+    {
+      "id": 3,
+      "name": "João Pedro Gonçalves"
+    },
+    {
+      "id": 4,
+      "name": "João Martins"
+    },
+    {
+      "id": 5,
+      "name": "Miguel Braga"
+    }
+  ],
+  "tasks": [
+    {
+      "id": 2,
+      "duedate": "13/03/2023",
+      "who": 1,
+      "description": "Entrega TPC4 PL",
+      "done": "true"
+    },
+    {
+      "description": "Entrega TPC4 EngWeb",
+      "who": "2",
+      "duedate": "17/03/2023",
+      "done": "false",
+      "id": 3
+    },
+    {
+      "description": "Entrega TPC5 PL",
+      "who": "4",
+      "duedate": "20/03/2023",
+      "done": "false",
+      "id": 4
+    }
+  ]
+}
